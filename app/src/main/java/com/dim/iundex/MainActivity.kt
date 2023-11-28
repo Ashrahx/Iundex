@@ -14,6 +14,7 @@ import android.os.CancellationSignal
 import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.Toast
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -21,7 +22,7 @@ import androidx.core.content.ContextCompat
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var fingerprintButton: Button
+    private lateinit var fingerprintButton: TextView
     private lateinit var registerButton: Button
 
     private var cancellationSignal: CancellationSignal? = null
