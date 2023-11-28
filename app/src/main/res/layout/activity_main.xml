@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#ffffff">
 
     <ImageView
+        android:id="@+id/topBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/top_background"
@@ -14,16 +14,19 @@
         android:contentDescription="@null"/>
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/logo"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null"
+        android:layout_below="@id/topBackground"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logo"
         android:fontStyle="italic"
         android:textSize="30sp"
         android:fontWeight="bold"
@@ -32,61 +35,38 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="66dp"
+        android:layout_below="@id/logo"
         android:layout_marginStart="64dp"
+        android:layout_marginTop="73dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="sans-serif-medium"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
         android:text="Use your password"
         android:textColor="@color/purple"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/button_background"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless"/>
+        android:textSize="18sp" />
+
 
     <TextView
+        android:id="@+id/registerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't remember password? click here"
-        android:layout_marginTop="8dp"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="169dp"
         android:layout_marginBottom="8dp"
-        android:textSize="14sp"
-        android:textColor="#7d32a8"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/google"
-            android:contentDescription=""
-            android:layout_margin="8dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/twitter"
-            android:contentDescription=""
-            android:layout_margin="8dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/facebook"
-            android:contentDescription=""
-            android:layout_margin="8dp"/>
-
-    </LinearLayout>
+        android:text="Register"
+        android:textColor="#7d32a8"
+        android:textSize="14sp"/>
 
     <ImageView
+        android:id="@+id/bottomBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:contentDescription=""
         android:scaleType="fitXY"
         android:src="@drawable/bottom_background" />
 
-</LinearLayout>
+</RelativeLayout>
