@@ -1,10 +1,17 @@
 package com.dim.iundex
 
 import android.Manifest
+import android.app.Dialog
+import android.app.KeyguardManager
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
 import android.os.Bundle
+import android.os.CancellationSignal
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -14,57 +21,72 @@ import androidx.core.content.ContextCompat
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var fingerprintButton: Button
 
-    private lateinit var biometricPrompt: BiometricPrompt
+    private var cancellationSignal : CancellationSignal? = null
 
+    private val authenticationCallback : BiometricPrompt.AuthenticationCallback
+        get() =
+            @RequiresApi(Build.VERSION_CODES.P)
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
+                    super.onAuthenticationError(errorCode, errString)
+                    notifyUser("Authentication error: $errString")
+                }
+
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
+                    super.onAuthenticationSucceeded(result)
+                    notifyUser("Authentication success!")
+                    startActivity(Intent(this@MainActivity, SecretActivity::class.java))
+                }
+            }
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fingerprintButton: Button = findViewById(R.id.fingerprintButton)
+        fingerprintButton = findViewById(R.id.fingerprintButton)
 
-        if (isBiometricPromptAvailable()) {
-            setupBiometricPrompt(fingerprintButton)
-        } else {
-            fingerprintButton.isEnabled = false
-        }
-    }
+        checkBiometricSupport()
 
-    private fun isBiometricPromptAvailable(): Boolean {
-        return ActivityCompat.checkSelfPermission(
-            this,
-            Manifest.permission.USE_BIOMETRIC
-        ) == PackageManager.PERMISSION_GRANTED &&
-                BiometricPrompt.from(this).isAvailable
-    }
-
-    @RequiresApi(Build.VERSION_CODES.P)
-    private fun setupBiometricPrompt(fingerprintButton: Button) {
-        val executor: Executor = ContextCompat.getMainExecutor(this)
-
-        val callback = object : BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                super.onAuthenticationSucceeded(result)
-                // Autenticación exitosa
-                Toast.makeText(
-                    this@MainActivity,
-                    "Biometric authentication succeeded",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                super.onAuthenticationError(errorCode, errString)
-                // Errores de autenticación
-                Toast.makeText(
-                    this@MainActivity,
-                    "Biometric authentication failed: $errString",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+        fingerprintButton.setOnClickListener {
+            val biometricPrompt = BiometricPrompt.Builder(this)
+                .setTitle("Title of prompt")
+                .setSubtitle("Authentication is required")
+                .setDescription("This app use fingerprint protection to keep your data secure")
+                .setNegativeButton("Cancell", this.mainExecutor, DialogInterface.OnClickListener { dialog, which ->
+                    notifyUser("Authentication cancelled")
+                }).build()
+            biometricPrompt.authenticate(getCancellationSign(),mainExecutor,authenticationCallback)
         }
 
-        biometricPrompt = BiometricPrompt(this, executor, callback)
+    }
+
+    private fun notifyUser(message : String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getCancellationSign() : CancellationSignal {
+        cancellationSignal = CancellationSignal()
+        cancellationSignal?.setOnCancelListener {
+            notifyUser("Authentication was cancelled by the user")
+        }
+        return cancellationSignal as CancellationSignal
+    }
+    private fun checkBiometricSupport(): Boolean {
+        val keyguardManager : KeyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+
+        if (!keyguardManager.isKeyguardSecure) {
+            notifyUser("Fingerprint authentication has not been enabled in settings")
+            return false
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED) {
+            notifyUser("Fingerprint authentication permission is not enabled")
+            return false
+        }
+        return if (packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
+            true
+        }else true
     }
 }

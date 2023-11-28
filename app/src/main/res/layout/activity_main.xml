@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
 
     <ImageView
         android:id="@+id/topBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/top_background"
+        android:contentDescription="@null"
         android:scaleType="fitXY"
-        android:contentDescription="@null"/>
+        android:src="@drawable/top_background" />
 
 
     <TextView
@@ -29,7 +31,7 @@
 
     <Button
         android:id="@+id/fingerprintButton"
-        android:layout_width="97dp"
+        android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
