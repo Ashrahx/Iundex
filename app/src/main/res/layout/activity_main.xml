@@ -92,18 +92,6 @@
         android:textColor="#7d32a8"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/copyText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottomBackground"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginBottom="-155dp"
-        android:text="Unlock the potential with Iundex"
-        android:textColor="#7d32a8"
-        android:textSize="16sp" />
-
     <ImageView
         android:id="@+id/bottomBackground"
         android:layout_width="match_parent"
@@ -112,5 +100,18 @@
         android:contentDescription=""
         android:scaleType="fitXY"
         android:src="@drawable/bottom_background" />
+
+    <TextView
+        android:id="@+id/copyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomBackground"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="10dp"
+        android:text="Unlock the potential with Iundex"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
 </RelativeLayout>
