@@ -4,4 +4,5 @@
     <string name="btn_register">Register</string>
     <string name="fingerprint">Log in with your fingerprint</string>
     <string name="option">Use your password</string>
+    <string name="fingerprint_button_description">Botón de huella dactilar para iniciar sesión</string>
 </resources>

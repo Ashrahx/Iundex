@@ -49,14 +49,14 @@ class RegisterActivity : AppCompatActivity() {
                 showToast("Welcome $username")
 
                 // A la página de inicio
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, SecretActivity::class.java)
                 startActivity(intent)
                 finish()  // Opcional: cierra la actividad actual si no se espera volver a ella
             }
         }
 
         loginLink.setOnClickListener {
-            val intent = Intent(this, SecretActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
