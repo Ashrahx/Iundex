@@ -13,13 +13,6 @@
         android:scaleType="fitXY"
         android:contentDescription="@null"/>
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/logo"
-        android:contentDescription="@null"
-        android:layout_below="@id/topBackground"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,15 +20,29 @@
         android:layout_below="@id/logo"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="127dp"
-        android:layout_marginTop="-206dp"
-        android:fontStyle="italic"
-        android:fontWeight="bold"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="-205dp"
         android:text="Welcome"
         android:textColor="#7d32a8"
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/fingerprintButton"
+        android:layout_width="97dp"
+        android:layout_height="75dp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/fingerprint_button_background"
+        android:fontFamily="sans-serif-medium"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
     <Button
         android:layout_width="match_parent"
@@ -43,7 +50,7 @@
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_background"
@@ -54,13 +61,33 @@
         android:textColor="@color/purple"
         android:textSize="18sp" />
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/topBackground"
+        android:layout_marginTop="21dp"
+        android:contentDescription="@null"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/loginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="93dp"
+        android:text="Log in with your fingerprint"
+        android:textColor="#7d32a8"
+        android:textSize="16sp" />
+
     <TextView
         android:id="@+id/registerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="188dp"
         android:text="Register"
         android:textColor="#7d32a8"
         android:textSize="16sp" />
@@ -74,17 +101,6 @@
         android:layout_marginStart="9dp"
         android:layout_marginBottom="-155dp"
         android:text="Unlock the potential with Iundex"
-        android:textColor="#7d32a8"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/loginText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="61dp"
-        android:text="Log in with your fingerprint"
         android:textColor="#7d32a8"
         android:textSize="16sp" />
 
