@@ -51,9 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         fingerprintButton.setOnClickListener {
             val biometricPrompt = BiometricPrompt.Builder(this)
-                .setTitle("Title of prompt")
-                .setSubtitle("Authentication is required")
-                .setDescription("This app use fingerprint protection to keep your data secure")
+                .setTitle("Enter Iundex")
                 .setNegativeButton("Cancell", this.mainExecutor, DialogInterface.OnClickListener { dialog, which ->
                     notifyUser("Authentication cancelled")
                 }).build()
