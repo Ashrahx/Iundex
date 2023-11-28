@@ -46,7 +46,7 @@
         android:scaleType="centerCrop"
         android:textSize="18sp" />
 
-    <Button
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/logo"
@@ -59,8 +59,9 @@
         android:fontFamily="sans-serif-medium"
         android:foreground="?android:attr/selectableItemBackgroundBorderless"
         android:gravity="center"
-        android:text="@string/option"
-        android:textColor="@color/purple"
+        android:hint="@string/option"
+        android:textColorHint="@color/purple"
+        android:inputType="textPassword"
         android:textSize="18sp" />
 
     <ImageView
