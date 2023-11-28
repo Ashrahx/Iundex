@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Iundex</string>
+    <string name="copy">Unlock the potential with Iundex</string>
+    <string name="btn_register">Register</string>
+    <string name="fingerprint">Log in with your fingerprint</string>
+    <string name="option">Use your password</string>
 </resources>

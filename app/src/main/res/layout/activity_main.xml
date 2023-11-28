@@ -24,9 +24,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="144dp"
         android:layout_marginTop="-205dp"
-        android:text="Welcome"
-        android:textColor="#7d32a8"
-        android:textSize="30sp"
+        android:text="@string/app_name"
+        android:textColor="@color/purple"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <Button
@@ -59,7 +59,7 @@
         android:fontFamily="sans-serif-medium"
         android:foreground="?android:attr/selectableItemBackgroundBorderless"
         android:gravity="center"
-        android:text="Use your password"
+        android:text="@string/option"
         android:textColor="@color/purple"
         android:textSize="18sp" />
 
@@ -68,7 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@id/topBackground"
-        android:layout_marginTop="21dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-27dp"
         android:contentDescription="@null"
         android:src="@drawable/logo" />
 
@@ -79,8 +80,8 @@
         android:layout_below="@id/logo"
         android:layout_centerInParent="true"
         android:layout_marginTop="93dp"
-        android:text="Log in with your fingerprint"
-        android:textColor="#7d32a8"
+        android:text="@string/fingerprint"
+        android:textColor="@color/purple"
         android:textSize="16sp" />
 
     <TextView
@@ -90,8 +91,8 @@
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="188dp"
-        android:text="Register"
-        android:textColor="#7d32a8"
+        android:text="@string/btn_register"
+        android:textColor="@color/purple"
         android:textSize="16sp" />
 
     <ImageView
@@ -99,7 +100,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:contentDescription=""
         android:scaleType="fitXY"
         android:src="@drawable/bottom_background" />
 
@@ -112,8 +112,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="10dp"
-        android:text="Unlock the potential with Iundex"
-        android:textColor="#FFFFFF"
+        android:text="@string/copy"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
 </RelativeLayout>
