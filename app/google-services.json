@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200698765634",
+    "project_id": "iundex-c3ca0",
+    "storage_bucket": "iundex-c3ca0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200698765634:android:be709fff4b2a33b82ce8db",
+        "android_client_info": {
+          "package_name": "com.dim.iundex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJtiGdx3jfnOAEGPUexGZYwTAE4K4Ivl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
