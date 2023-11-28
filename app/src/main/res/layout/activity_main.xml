@@ -54,12 +54,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
-        android:layout_marginTop="171dp"
+        android:layout_marginTop="169dp"
         android:layout_marginBottom="8dp"
         android:text="Register"
-        android:layout_alignEnd="@id/bottomBackground"
         android:textColor="#7d32a8"
-        android:textSize="14sp" />
+        android:textSize="14sp"/>
 
     <ImageView
         android:id="@+id/bottomBackground"
