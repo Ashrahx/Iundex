@@ -22,10 +22,11 @@ import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
     private lateinit var fingerprintButton: Button
+    private lateinit var registerButton: Button
 
-    private var cancellationSignal : CancellationSignal? = null
+    private var cancellationSignal: CancellationSignal? = null
 
-    private val authenticationCallback : BiometricPrompt.AuthenticationCallback
+    private val authenticationCallback: BiometricPrompt.AuthenticationCallback
         get() =
             @RequiresApi(Build.VERSION_CODES.P)
             object : BiometricPrompt.AuthenticationCallback() {
@@ -40,12 +41,14 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this@MainActivity, SecretActivity::class.java))
                 }
             }
+
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         fingerprintButton = findViewById(R.id.fingerprintButton)
+        registerButton = findViewById(R.id.registerButton)
 
         checkBiometricSupport()
 
@@ -55,27 +58,31 @@ class MainActivity : AppCompatActivity() {
                 .setNegativeButton("Cancell", this.mainExecutor, DialogInterface.OnClickListener { dialog, which ->
                     notifyUser("Authentication cancelled")
                 }).build()
-            biometricPrompt.authenticate(getCancellationSign(),mainExecutor,authenticationCallback)
+            biometricPrompt.authenticate(getCancellationSign(), mainExecutor, authenticationCallback)
         }
 
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun notifyUser(message : String) {
+    private fun notifyUser(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun getCancellationSign() : CancellationSignal {
+    private fun getCancellationSign(): CancellationSignal {
         cancellationSignal = CancellationSignal()
         cancellationSignal?.setOnCancelListener {
             notifyUser("Authentication was cancelled by the user")
         }
         return cancellationSignal as CancellationSignal
     }
+
     private fun checkBiometricSupport(): Boolean {
-        val keyguardManager : KeyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+        val keyguardManager: KeyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 
         if (!keyguardManager.isKeyguardSecure) {
-            notifyUser("Fingerprint authentication has not been enabled in settings")
             return false
         }
 
@@ -85,6 +92,6 @@ class MainActivity : AppCompatActivity() {
         }
         return if (packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
             true
-        }else true
+        } else true
     }
 }

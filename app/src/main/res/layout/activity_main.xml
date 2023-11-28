@@ -69,7 +69,10 @@
         android:layout_height="150dp"
         android:layout_below="@id/topBackground"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="-27dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="-2dp"
         android:contentDescription="@null"
         android:src="@drawable/logo" />
 
@@ -84,13 +87,14 @@
         android:textColor="@color/purple"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/registerText"
+    <Button
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="188dp"
+        android:background="#00FFFFFF"
         android:text="@string/btn_register"
         android:textColor="@color/purple"
         android:textSize="16sp" />
