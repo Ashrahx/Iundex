@@ -29,35 +29,6 @@
         android:fontWeight="bold"
         android:textColor="#7d32a8"/>
 
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/edit_text_background"
-        android:text="Username"
-        android:textColor="#7d32a8"
-        android:gravity="center"
-        android:textSize="14sp"/>
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/edit_text_background"
-        android:text="Password"
-        android:textColor="#7d32a8"
-        android:gravity="center"
-        android:textSize="14sp"
-        android:inputType="textPassword"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="66dp"
@@ -65,12 +36,13 @@
         android:layout_marginEnd="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Login"
-        android:textColor="#ffffff"
-        android:background="#7d32a8"
+        android:text="Use your password"
+        android:textColor="@color/purple"
         android:gravity="center"
         android:textSize="18sp"
-        android:fontFamily="sans-serif-medium"/>
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/button_background"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,9 +84,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/bottom_background"
-        android:scaleType="fitXY"
+        android:layout_gravity="bottom"
         android:contentDescription=""
-        android:layout_gravity="bottom"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_background" />
 
 </LinearLayout>
