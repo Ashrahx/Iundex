@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
 
     <ImageView
@@ -43,38 +44,10 @@
         android:src="@drawable/top_background" />
 
     <EditText
-        android:id="@+id/confirmPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/passwordEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:hint="Confirm your password"
-        android:inputType="textPassword"
-        android:autofillHints="" />
-
-    <EditText
-        android:id="@+id/usernameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        android:hint="Username"
-        android:inputType="text" />
-
-    <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/usernameEditText"
+        android:layout_below="@id/logo"
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
@@ -96,43 +69,33 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <CheckBox
-        android:id="@+id/termsCheckbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/confirmPasswordEditText"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="64dp"
-        android:textColor="@color/purple"
-        android:text="I accept the terms and conditions"/>
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/confirmPasswordEditText"
+        android:layout_below="@id/passwordEditText"
         android:layout_centerInParent="true"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_background"
         android:fontFamily="sans-serif-medium"
         android:foreground="?android:attr/selectableItemBackgroundBorderless"
         android:gravity="center"
-        android:text="@string/btn_register"
+        android:text="Log in"
         android:textColor="@color/purple"
         android:textSize="18sp" />
 
-    <Button
+    <TextView
         android:id="@+id/loginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/registerButton"
+        android:layout_below="@id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:background="#00FFFFFF"
-        android:text="Already have an account? Log in"
+        android:text="Don´t have an account? Sign up"
         android:textColor="@color/purple"
         android:textSize="16sp" />
 

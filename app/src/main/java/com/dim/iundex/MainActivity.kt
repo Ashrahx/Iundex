@@ -24,6 +24,7 @@ import java.util.concurrent.Executor
 class MainActivity : AppCompatActivity() {
     private lateinit var fingerprintButton: TextView
     private lateinit var registerButton: Button
+    private lateinit var optionButton: Button
 
     private var cancellationSignal: CancellationSignal? = null
 
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         fingerprintButton = findViewById(R.id.fingerprintButton)
         registerButton = findViewById(R.id.registerButton)
+        optionButton = findViewById(R.id.optionButton)
 
         checkBiometricSupport()
 
@@ -60,6 +62,12 @@ class MainActivity : AppCompatActivity() {
                     notifyUser("Authentication cancelled")
                 }).build()
             biometricPrompt.authenticate(getCancellationSign(), mainExecutor, authenticationCallback)
+        }
+
+
+        optionButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
         registerButton.setOnClickListener {
