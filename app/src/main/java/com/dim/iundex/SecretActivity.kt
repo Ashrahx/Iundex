@@ -16,6 +16,8 @@ class SecretActivity : AppCompatActivity() {
     private fun bottomNavigation() {
         val homeBtn: LinearLayout = findViewById(R.id.homeBtn)
 
-        homeBtn.setOnClickListener { startActivity(Intent(this@SecretActivity, SecretActivity::class.java)) }
+        homeBtn.setOnClickListener {
+            startActivity(Intent(this@SecretActivity, SecretActivity::class.java))
+        }
     }
 }
